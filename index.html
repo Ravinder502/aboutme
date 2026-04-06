@@ -366,7 +366,7 @@
         <p class="dynamic-role">Currently building: <span id="dynamic-role-text">Data-driven products</span></p>
         <p class="location">Darmstadt, Hesse, Germany</p>
         <div class="hero-actions">
-          <a class="btn primary" href="mailto:c.ravinder1502.de@gmail.com">Email Me</a>
+          <a class="btn primary" href="mailto:c.ravinder1502@gmail.com">Email Me</a>
           <a
             class="btn"
             href="https://www.linkedin.com/in/ravindersinghchauhan1502"
@@ -514,7 +514,6 @@
         roleIndex = (roleIndex + 1) % roles.length;
         roleText.textContent = roles[roleIndex];
       }, 2200);
-      window.addEventListener("beforeunload", () => clearInterval(roleInterval));
 
       const revealItems = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
