@@ -388,7 +388,7 @@
           <ul class="contact-list">
             <li>
               Email:
-              <a href="mailto:c.ravinder1502.de@gmail.com">c.ravinder1502.de@gmail.com</a>
+              <a href="mailto:c.ravinder1502@gmail.com">c.ravinder1502@gmail.com</a>
             </li>
             <li>
               LinkedIn:
@@ -405,15 +405,15 @@
         <article class="glass card span-8 reveal" id="skills-card">
           <h2>Top Skills</h2>
           <div class="skill-meter">
-            <div class="skill-row"><span>Data Engineering</span><span>88%</span></div>
+            <div class="skill-row"><span>Data Engineering</span><span class="skill-level-text"></span></div>
             <div class="meter-track"><div class="meter-fill" data-level="88"></div></div>
           </div>
           <div class="skill-meter">
-            <div class="skill-row"><span>Kubernetes</span><span>78%</span></div>
+            <div class="skill-row"><span>Kubernetes</span><span class="skill-level-text"></span></div>
             <div class="meter-track"><div class="meter-fill" data-level="78"></div></div>
           </div>
           <div class="skill-meter">
-            <div class="skill-row"><span>Docker</span><span>84%</span></div>
+            <div class="skill-row"><span>Docker</span><span class="skill-level-text"></span></div>
             <div class="meter-track"><div class="meter-fill" data-level="84"></div></div>
           </div>
         </article>
@@ -486,9 +486,20 @@
     </main>
     <script>
       const spotlight = document.querySelector(".spotlight");
+      let rafId = null;
+      let pendingX = 0;
+      let pendingY = 0;
+      const updateSpotlight = () => {
+        spotlight.style.setProperty("--mx", `${pendingX}px`);
+        spotlight.style.setProperty("--my", `${pendingY}px`);
+        rafId = null;
+      };
       window.addEventListener("pointermove", (event) => {
-        spotlight.style.setProperty("--mx", `${event.clientX}px`);
-        spotlight.style.setProperty("--my", `${event.clientY}px`);
+        pendingX = event.clientX;
+        pendingY = event.clientY;
+        if (rafId === null) {
+          rafId = requestAnimationFrame(updateSpotlight);
+        }
       });
 
       const roles = [
@@ -499,10 +510,11 @@
       ];
       const roleText = document.getElementById("dynamic-role-text");
       let roleIndex = 0;
-      setInterval(() => {
+      const roleInterval = setInterval(() => {
         roleIndex = (roleIndex + 1) % roles.length;
         roleText.textContent = roles[roleIndex];
       }, 2200);
+      window.addEventListener("beforeunload", () => clearInterval(roleInterval));
 
       const revealItems = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
@@ -519,6 +531,10 @@
 
       const skillCard = document.getElementById("skills-card");
       const skillBars = skillCard.querySelectorAll(".meter-fill");
+      skillBars.forEach((bar) => {
+        const levelText = bar.closest(".skill-meter").querySelector(".skill-level-text");
+        levelText.textContent = `${bar.dataset.level}%`;
+      });
       const skillObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
