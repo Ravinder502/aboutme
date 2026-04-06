@@ -1,6 +1,6 @@
 # Ravinder Singh Chauhan Portfolio
 
-A modern, glassmorphism-style personal portfolio page built with plain HTML and CSS.
+A modern, glassmorphism-style personal portfolio page built with plain HTML, CSS, and vanilla JavaScript.
 
 ## Preview
 
@@ -13,3 +13,5 @@ Open `index.html` in your browser.
 - Languages
 - Experience
 - Education
+- Interactive spotlight + hover effects
+- Scroll reveal and animated skill meters
