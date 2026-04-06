@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ravinder Singh Chauhan | Portfolio</title>
+    <style>
+      :root {
+        --bg-1: #09111f;
+        --bg-2: #13233f;
+        --accent: #84d8ff;
+        --accent-2: #b89dff;
+        --text: #f6f9ff;
+        --muted: #d2ddf7;
+        --glass: rgba(255, 255, 255, 0.12);
+        --border: rgba(255, 255, 255, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 20%, #1c315b 0%, var(--bg-1) 45%),
+          linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        min-height: 100vh;
+      }
+
+      .glow {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .glow::before,
+      .glow::after {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        filter: blur(70px);
+      }
+
+      .glow::before {
+        background: rgba(132, 216, 255, 0.45);
+        top: -100px;
+        left: -100px;
+      }
+
+      .glow::after {
+        background: rgba(184, 157, 255, 0.35);
+        right: -120px;
+        bottom: -100px;
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 28px 20px 48px;
+      }
+
+      .glass {
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .hero {
+        padding: 28px;
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 3.3vw, 2.45rem);
+      }
+
+      .hero .headline {
+        margin: 12px 0 6px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .hero .location {
+        margin: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .span-4 {
+        grid-column: span 4;
+      }
+
+      .span-8 {
+        grid-column: span 8;
+      }
+
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 1.1rem;
+        letter-spacing: 0.2px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 9px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact-list li {
+        margin-bottom: 12px;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .role {
+        margin: 0 0 5px;
+        font-weight: 700;
+      }
+
+      .meta {
+        margin: 0 0 8px;
+        font-size: 0.93rem;
+        color: #d8e6ff;
+      }
+
+      .exp-item + .exp-item {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .tagline {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        font-size: 0.83rem;
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .span-4,
+        .span-8 {
+          grid-column: span 12;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow"></div>
+    <main class="container">
+      <section class="glass hero">
+        <span class="tagline">Open to Internship / Werkstudent</span>
+        <h1>Ravinder Singh Chauhan</h1>
+        <p class="headline">
+          Data Science | ML &amp; DL | Generative AI | M.Sc. CS @ TU Darmstadt
+        </p>
+        <p class="location">Darmstadt, Hesse, Germany</p>
+      </section>
+
+      <section class="grid">
+        <article class="glass card span-4">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <li>
+              Email:
+              <a href="mailto:c.ravinder1502.de@gmail.com">c.ravinder1502.de@gmail.com</a>
+            </li>
+            <li>
+              LinkedIn:
+              <a
+                href="https://www.linkedin.com/in/ravindersinghchauhan1502"
+                target="_blank"
+                rel="noreferrer noopener"
+                >ravindersinghchauhan1502</a
+              >
+            </li>
+          </ul>
+        </article>
+
+        <article class="glass card span-8">
+          <h2>Top Skills</h2>
+          <ul>
+            <li>Data Engineering</li>
+            <li>Kubernetes</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+
+        <article class="glass card span-12">
+          <h2>Experience</h2>
+
+          <div class="exp-item">
+            <p class="role">Data Analyst — ZULU AVIATION CONSULTANTS PRIVATE LIMITED</p>
+            <p class="meta">September 2023 - February 2024 · New Delhi, India</p>
+          </div>
+
+          <div class="exp-item">
+            <p class="role">Data Analyst — Connoisseurs Klover Pvt. Ltd</p>
+            <p class="meta">June 2022 - September 2022 · Delhi, India</p>
+            <ul>
+              <li>
+                Hands-on experience with Power BI dashboards, creating multiple reports and publishing them on the web.
+              </li>
+              <li>
+                Analyzed prime data sources, identified anomalies, and shared insights to improve data quality.
+              </li>
+              <li>
+                Built customized reports/dashboards for sales and marketing teams as requested.
+              </li>
+              <li>
+                Independently managed end-to-end lifecycle of data analytics solutions to deliver high value.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="glass card span-8">
+          <h2>Education</h2>
+          <ul>
+            <li>
+              <strong>Technische Universität Darmstadt</strong><br />
+              Master of Science in Computer Science, Specialization - Data Science &amp; Engineering (April 2024 - 2026)
+            </li>
+            <li>
+              <strong>Vivekananda Institute of Professional Studies</strong><br />
+              Bachelor in Computer Applications, Computer Science (November 2020 - July 2023)
+            </li>
+            <li>
+              <strong>Kulachi Hansraj Model School</strong><br />
+              Higher Secondary Education (HSC) (April 2019 - April 2020)
+            </li>
+          </ul>
+        </article>
+
+        <article class="glass card span-4">
+          <h2>Languages</h2>
+          <ul>
+            <li>German B1 (Professional Working)</li>
+            <li>English C1 (Native or Bilingual)</li>
+            <li>Hindi (Native or Bilingual)</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
