@@ -508,19 +508,22 @@
         "AI-infused dashboards",
         "Scalable analytics workflows",
       ];
+      const ROLE_ROTATION_INTERVAL_MS = 2200;
+      const REVEAL_THRESHOLD = 0.15;
+      const SKILL_ANIMATION_THRESHOLD = 0.3;
       const roleText = document.getElementById("dynamic-role-text");
       let roleIndex = 0;
       const rotateRole = () => {
         roleIndex = (roleIndex + 1) % roles.length;
         roleText.textContent = roles[roleIndex];
       };
-      let roleInterval = setInterval(rotateRole, 2200);
+      let roleInterval = setInterval(rotateRole, ROLE_ROTATION_INTERVAL_MS);
       document.addEventListener("visibilitychange", () => {
         if (document.hidden && roleInterval) {
           clearInterval(roleInterval);
           roleInterval = null;
         } else if (!document.hidden && !roleInterval) {
-          roleInterval = setInterval(rotateRole, 2200);
+          roleInterval = setInterval(rotateRole, ROLE_ROTATION_INTERVAL_MS);
         }
       });
 
@@ -533,7 +536,7 @@
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: REVEAL_THRESHOLD }
       );
       revealItems.forEach((item) => observer.observe(item));
 
@@ -554,7 +557,7 @@
             }
           });
         },
-        { threshold: 0.3 }
+        { threshold: SKILL_ANIMATION_THRESHOLD }
       );
       skillObserver.observe(skillCard);
     </script>
