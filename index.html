@@ -510,10 +510,19 @@
       ];
       const roleText = document.getElementById("dynamic-role-text");
       let roleIndex = 0;
-      const roleInterval = setInterval(() => {
+      const rotateRole = () => {
         roleIndex = (roleIndex + 1) % roles.length;
         roleText.textContent = roles[roleIndex];
-      }, 2200);
+      };
+      let roleInterval = setInterval(rotateRole, 2200);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden && roleInterval) {
+          clearInterval(roleInterval);
+          roleInterval = null;
+        } else if (!document.hidden && !roleInterval) {
+          roleInterval = setInterval(rotateRole, 2200);
+        }
+      });
 
       const revealItems = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
